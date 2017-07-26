@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin around the floating action button in List Item -->
+    <dimen name="fab_margin">3dp</dimen>
+
+    <!-- Margin Top for the profile name textView -->
+    <dimen name="text_view_layout">10dp</dimen>
+
+    <!-- Layout dimension for the List item -->
+    <dimen name="layout_dimens">80dp</dimen>
+
+    <!-- Layout margin for the imageView-->
+    <dimen name="image_layout_margin">12dp</dimen>
+
+    <!-- Text size for the profile name textView -->
+    <dimen name="profile_name_text_view_size">18sp</dimen>
+
+    <!-- Text size for the profile url  textView -->
+    <dimen name="profile_url_text_view_size">14sp</dimen>
+
+    <!-- The divider height for the ListView  -->
+    <dimen name="divider_height">1dp</dimen>
+
+    <!-- Text size for the Id textView -->
+    <dimen name="id_text_view_size">12sp</dimen>
+
+    <!-- Padding for the list item -->
+    <dimen name="padding">6dp</dimen>
+
+    <!-- layout width and height for the list item -->
+    <dimen name="fab_dimens">18dp</dimen>
+
+    <!-- The profile url textView layout -->
+    <dimen name="profile_url_layout">30dp</dimen>
+
+    <!-- The width of both textView in linear layout -->
+    <dimen name="linear_layout_width">0dp</dimen>
+</resources>

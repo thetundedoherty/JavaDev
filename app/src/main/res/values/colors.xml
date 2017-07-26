@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E5446D</color>
+    <color name="colorPrimaryDark">#A02F4C</color>
+    <color name="colorAccent">#0e0b63</color>
+
+    <!-- Text color for the profile name textView-->
+    <color name="textColorProfileNameTextView">#99005D</color>
+
+    <!-- Text color for the  Id textView-->
+    <color name="textColorIdTextView">#89D2E3</color>
+
+    <!-- Background  color for the listView-->
+    <color name="list_item_start_color">#ffffff</color>
+    <color name="list_item_end_color">#ffffff</color>
+    <color name="list_item_hover_start_color">#ebeef0</color>
+    <color name="list_item_hover_end_color">#ebeef0</color>
+    <color name="list_divider">#d9d9d9</color>
+
+</resources>

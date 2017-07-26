@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/layout_dimens"
+    android:padding="@dimen/padding"
+    android:background="@drawable/list_item_selector">
+
+    <!-- Thumbnail Image -->
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/layout_dimens"
+        android:layout_height="@dimen/layout_dimens"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="@dimen/image_layout_margin"
+        android:layout_marginEnd="@dimen/image_layout_margin"/>
+
+    <!-- LinearLayout parent to the Profile Name and User Id-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/thumbnail"
+        android:layout_toEndOf="@id/thumbnail"
+        android:id="@+id/linear_layout">
+
+    <!-- Profile name TextView-->
+    <TextView
+        android:layout_width="@dimen/linear_layout_width"
+        android:layout_height="wrap_content"
+        tools:text="Profile Name"
+        android:textSize="@dimen/profile_name_text_view_size"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorProfileNameTextView"
+        android:layout_marginTop="@dimen/text_view_layout"
+        android:id="@+id/profile_name_text_view"
+        android:layout_weight="2"/>
+
+    <!--User Id TextView-->
+    <TextView
+        android:layout_width="@dimen/linear_layout_width"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_text_view"
+        android:textSize="@dimen/id_text_view_size"
+        android:fontFamily="sans-serif-medium"
+        tools:text="1234567"
+        android:textColor="@color/textColorIdTextView"
+        android:layout_marginTop="@dimen/text_view_layout" />
+
+  </LinearLayout>
+
+    <!-- profile url TextView-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_layout"
+        tools:text="Profile Url"
+        android:textSize="@dimen/profile_url_text_view_size"
+        android:fontFamily="sans-serif-medium"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toEndOf="@+id/thumbnail"
+        android:textColor="@color/textColorProfileNameTextView"
+        android:layout_marginTop="@dimen/profile_url_layout"
+        android:id="@+id/profile_url_text_view"
+        android:autoLink="web"/>
+
+    <!-- Share Button-->
+    <ImageView
+        android:layout_width="@dimen/fab_dimens"
+        android:layout_height="@dimen/fab_dimens"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_share_black_16dp"
+        android:id="@+id/image_view"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

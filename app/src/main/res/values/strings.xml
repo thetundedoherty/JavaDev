@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Application Name-->
+    <string name="app_name">JavaDevLagos</string>
+
+    <!-- Text for the settings option menu-->
+    <string name="action_settings">Settings</string>
+
+    <!-- Text displayed when internet is out of reach-->
+    <string name="no_internet">No Internet Connection</string>
+
+    <!-- Text for the search option menu-->
+    <string name="search_title">Search</string>
+
+    <!-- Text for the search hint-->
+    <string name="search_hint">Search List</string>
+
+    <!-- Text to display if there is no data to display-->
+    <string name="no_data">No Data to Display</string>
+</resources>
