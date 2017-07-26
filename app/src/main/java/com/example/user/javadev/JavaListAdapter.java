@@ -107,6 +107,7 @@ public class JavaListAdapter extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Set up an explicit intent to share message to different messaging channel.
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer " + profileName.getText() + " with the link " + profileUrl.getText());
