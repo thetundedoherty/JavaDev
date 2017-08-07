@@ -21,13 +21,6 @@
             android:listSelector="@drawable/list_item_selector"
             android:orientation="vertical" />
 
-        <!-- Empty view is only visible when the list has no items. -->
-        <TextView
-            android:id="@+id/empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textAppearance="?android:textAppearanceMedium" />
     </RelativeLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>
