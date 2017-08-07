@@ -47,12 +47,20 @@ public class JavaListAdapter extends BaseAdapter {
         this.javaUserListLagosItems = javaUserListLagosItems;
         this.javaItemSearched = new ArrayList<JavaUserListLagos>();
         this.javaItemSearched.addAll(javaUserListLagosItems);
+
     }
 
     //Method to update the search List
     public void updateSearchedList() {
+
+        //Remove all searched item if it exists before refreshing
+        //noinspection CollectionAddedToSelf
+        javaItemSearched.removeAll(javaItemSearched);
+
+        //Add all items to the refreshed listView
         javaItemSearched.addAll(javaUserListLagosItems);
     }
+
 
     @Override
     public int getCount() {
@@ -89,6 +97,7 @@ public class JavaListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        //Inflate the layout if the it is null with the systemService
         if (inflater == null)
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -97,9 +106,16 @@ public class JavaListAdapter extends BaseAdapter {
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
+        //Getting the id of the networkImage to be converted
         NetworkImageView thumbNail = (NetworkImageView) convertView.findViewById(R.id.thumbnail);
+
+        //Getting the id of the profileName to be converted
         final TextView profileName = (TextView) convertView.findViewById(R.id.profile_name_text_view);
+
+        //Getting the id of the userId to be converted
         final TextView userId = (TextView) convertView.findViewById(R.id.id_text_view);
+
+        //Getting the profileUrl of the userId to be converted
         final TextView profileUrl = (TextView) convertView.findViewById(R.id.profile_url_text_view);
 
         // Setup share button image to send message about the user using intent

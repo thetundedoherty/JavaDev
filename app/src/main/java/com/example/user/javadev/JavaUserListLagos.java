@@ -26,6 +26,7 @@ public class JavaUserListLagos {
      * @param profileUrl
      * @param id
      */
+
     public JavaUserListLagos(String profileName, String avatarUrl, String profileUrl, int id) {
         this.mLogin = profileName;
         this.mAvatarUrl = avatarUrl;
