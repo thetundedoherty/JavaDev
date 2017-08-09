@@ -53,8 +53,7 @@ public class JavaListAdapter extends BaseAdapter {
     //Method to update the search List
     public void updateSearchedList() {
 
-        //Remove all searched item if it exists before refreshing
-        //noinspection CollectionAddedToSelf
+        //Remove all searched item if it exists when refreshing
         javaItemSearched.removeAll(javaItemSearched);
 
         //Add all items to the refreshed listView
@@ -115,7 +114,7 @@ public class JavaListAdapter extends BaseAdapter {
         //Getting the id of the userId to be converted
         final TextView userId = (TextView) convertView.findViewById(R.id.id_text_view);
 
-        //Getting the profileUrl of the userId to be converted
+        //Getting the id of the userId to be converted
         final TextView profileUrl = (TextView) convertView.findViewById(R.id.profile_url_text_view);
 
         // Setup share button image to send message about the user using intent

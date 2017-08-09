@@ -276,8 +276,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             swipeRefreshLayout.post(new Runnable() {
                 @Override
                 public void run() {
-                    //Removing javaUserListLagos array from the existing list before fetching data for refreshing
-                    javaUserLagosList.removeAll(javaUserLagosList);
+                    //Clear the adapter
+                    javaUserLagosList.clear();
 
                     //Do the refresh
                     fetchJavaUserListLagos();
@@ -351,9 +351,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                 //Creating a new list of JavaUserListLagos
                 List<JavaUserListLagos> javaUserLagosList = new ArrayList<JavaUserListLagos>();
-
-                //Clear the adapter
-                javaUserLagosList.clear();
 
                 //Add the new items
                 javaUserLagosList.addAll(javaUserLagosList);
