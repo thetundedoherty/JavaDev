@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by USER on 7/17/2017.
+ * Created by TheTundeDoherty on 7/17/2017.
  */
 
 public class JavaListAdapter extends BaseAdapter {

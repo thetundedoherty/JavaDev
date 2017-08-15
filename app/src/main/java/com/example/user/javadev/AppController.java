@@ -9,7 +9,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 /**
- * Created by USER on 7/17/2017.
+ * Created by TheTundeDoherty on 7/17/2017.
  */
 
 public class AppController extends Application {

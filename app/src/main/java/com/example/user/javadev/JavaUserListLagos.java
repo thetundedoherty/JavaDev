@@ -1,7 +1,7 @@
 package com.example.user.javadev;
 
 /**
- * Created by USER on 7/16/2017.
+ * Created by TheTundeDoherty on 7/16/2017.
  */
 
 public class JavaUserListLagos {

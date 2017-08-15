@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 /**
- * Created by USER on 7/24/2017.
+ * Created by TheTundeDoherty on 7/24/2017.
  */
 
 public class SearchActivity extends Activity {

@@ -6,7 +6,7 @@ import android.support.v4.util.LruCache;
 import com.android.volley.toolbox.ImageLoader;
 
 /**
- * Created by USER on 7/17/2017.
+ * Created by TheTundeDoherty on 7/17/2017.
  */
 
 

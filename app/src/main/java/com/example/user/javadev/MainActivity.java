@@ -18,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,6 +35,9 @@ import java.util.List;
 
 import static android.widget.Toast.makeText;
 
+/**
+ * Created by TheTundeDoherty on 7/17/2017.
+ */
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
@@ -61,9 +63,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     // List Adapter
     private JavaListAdapter adapter;
 
-    // TextView that is displayed when the list is empty
-    private TextView mEmptyStateTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         //Find the list in the xml layout with the reference code
         listView = (ListView) findViewById(R.id.list);
+
 
         //Set scroll listener to enable smooth scrolling on listView
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             AppController.getInstance().addToRequestQueue(javaListReq);
         } else {
             //Dispaly a toast to notify the user that there isn't internet connection
-            makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -257,8 +257,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
-        //Set a toast notification to intimate the user that the list is refreshing
-        makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -271,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //Set a toast notification to intimate the user that the network is fetching data
-            makeText(this, "Fetching list of Java Users in Lagos", Toast.LENGTH_LONG).show();
+            makeText(this, "Refreshing list of Java Users in Lagos", Toast.LENGTH_LONG).show();
 
             swipeRefreshLayout.post(new Runnable() {
                 @Override
@@ -364,7 +362,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 //Disable the Refreshing animation
                 swipeRefreshLayout.setRefreshing(false);
             }
-        }, 5000);
+        }, 10000);
     }
 }
 
