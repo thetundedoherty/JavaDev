@@ -7,7 +7,7 @@
     android:background="@drawable/list_item_selector">
 
     <!-- Thumbnail Image -->
-    <com.android.volley.toolbox.NetworkImageView
+    <com.example.user.javadev.CircularNetworkImageView
         android:id="@+id/thumbnail"
         android:layout_width="@dimen/layout_dimens"
         android:layout_height="@dimen/layout_dimens"
@@ -27,7 +27,7 @@
 
     <!-- Profile name TextView-->
     <TextView
-        android:layout_width="@dimen/linear_layout_width"
+        android:layout_width="@dimen/linear_layout_child_width"
         android:layout_height="wrap_content"
         tools:text="Profile Name"
         android:textSize="@dimen/profile_name_text_view_size"
@@ -39,7 +39,7 @@
 
     <!--User Id TextView-->
     <TextView
-        android:layout_width="@dimen/linear_layout_width"
+        android:layout_width="@dimen/linear_layout_child_width"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:id="@+id/id_text_view"

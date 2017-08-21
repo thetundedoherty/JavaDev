@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,6 @@ public class JavaListAdapter extends BaseAdapter {
     private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
     /**
-     *
      * @param activity
      * @param javaUserListLagosItems
      */
@@ -52,7 +50,6 @@ public class JavaListAdapter extends BaseAdapter {
 
     //Method to update the search List
     public void updateSearchedList() {
-
         //Remove all searched item if it exists when refreshing
         javaItemSearched.removeAll(javaItemSearched);
 
@@ -67,7 +64,6 @@ public class JavaListAdapter extends BaseAdapter {
     }
 
     /**
-     *
      * @param location
      * @return
      */
@@ -77,7 +73,6 @@ public class JavaListAdapter extends BaseAdapter {
     }
 
     /**
-     *
      * @param position
      * @return
      */
@@ -87,7 +82,6 @@ public class JavaListAdapter extends BaseAdapter {
     }
 
     /**
-     *
      * @param position
      * @param convertView
      * @param parent
@@ -98,15 +92,13 @@ public class JavaListAdapter extends BaseAdapter {
 
         //Inflate the layout if the it is null with the systemService
         if (inflater == null)
-            inflater = (LayoutInflater) activity
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if (convertView == null)
             convertView = inflater.inflate(R.layout.list_item, null);
 
-        if (imageLoader == null)
-            imageLoader = AppController.getInstance().getImageLoader();
         //Getting the id of the networkImage to be converted
-        NetworkImageView thumbNail = (NetworkImageView) convertView.findViewById(R.id.thumbnail);
+        final CircularNetworkImageView thumbNail = (CircularNetworkImageView) convertView.findViewById(R.id.thumbnail);
 
         //Getting the id of the profileName to be converted
         final TextView profileName = (TextView) convertView.findViewById(R.id.profile_name_text_view);
@@ -117,16 +109,16 @@ public class JavaListAdapter extends BaseAdapter {
         //Getting the id of the userId to be converted
         final TextView profileUrl = (TextView) convertView.findViewById(R.id.profile_url_text_view);
 
-        // Setup share button image to send message about the user using intent
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.image_view);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        // Setup share button with intent to send message about the user
+        ImageView imageShare = (ImageView) convertView.findViewById(R.id.image_view);
+        imageShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Set up an explicit intent to share message to different messaging channel.
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer " + profileName.getText() + " with the link " + profileUrl.getText());
-                sendIntent.setType("text/plain");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer " + profileName.getText() +
+                        " with the link " + profileUrl.getText()).setType("text/plain");
                 activity.startActivity(sendIntent);
             }
         });
@@ -150,8 +142,8 @@ public class JavaListAdapter extends BaseAdapter {
     }
 
     // Filter Class
+
     /**
-     *
      * @param charText
      */
     public void filter(String charText) {
@@ -169,7 +161,6 @@ public class JavaListAdapter extends BaseAdapter {
         }
         notifyDataSetChanged();
     }
-
 }
 
 

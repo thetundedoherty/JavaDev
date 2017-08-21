@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //Set a toast notification to intimate the user that the network is fetching data
-            makeText(this, "Refreshing list of Java Users in Lagos", Toast.LENGTH_LONG).show();
+            makeText(this, "Refreshing list", Toast.LENGTH_LONG).show();
 
             swipeRefreshLayout.post(new Runnable() {
                 @Override
@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         } else {
             //Dispaly a toast to notify the user that there isn't internet connection
-            makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            makeText(this, "Couldn't refresh list", Toast.LENGTH_SHORT).show();
         }
         //Diable the refreshing animation
         swipeRefreshLayout.setRefreshing(false);

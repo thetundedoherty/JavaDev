@@ -7,7 +7,7 @@
     <dimen name="text_view_layout">10dp</dimen>
 
     <!-- Layout dimension for the List item -->
-    <dimen name="layout_dimens">80dp</dimen>
+    <dimen name="layout_dimens">70dp</dimen>
 
     <!-- Layout margin for the imageView-->
     <dimen name="image_layout_margin">12dp</dimen>
@@ -34,5 +34,5 @@
     <dimen name="profile_url_layout">30dp</dimen>
 
     <!-- The width of both textView in linear layout -->
-    <dimen name="linear_layout_width">0dp</dimen>
+    <dimen name="linear_layout_child_width">0dp</dimen>
 </resources>
