@@ -24,6 +24,9 @@
     <!-- Text size for the Id textView -->
     <dimen name="id_text_view_size">12sp</dimen>
 
+    <!-- Text size for the Error TextView -->
+    <dimen name="error_text_view_size">16sp</dimen>
+
     <!-- Padding for the list item -->
     <dimen name="padding">6dp</dimen>
 

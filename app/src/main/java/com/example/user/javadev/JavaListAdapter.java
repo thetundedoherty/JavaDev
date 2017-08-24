@@ -136,7 +136,7 @@ public class JavaListAdapter extends BaseAdapter {
         profileUrl.setText(javaUserListLagos.getmProfileUrl());
 
         // User id
-        userId.setText("User ID: " + String.valueOf(javaUserListLagos.getmId()));
+        userId.setText(String.format("User ID: %s", String.valueOf(javaUserListLagos.getmId())));
 
         return convertView;
     }

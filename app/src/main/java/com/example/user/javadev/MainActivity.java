@@ -16,8 +16,10 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     // Progress dialog
     private ProgressDialog pDialog;
+
+    // Error TextView
+    private TextView mErrorTextView;
 
     // Array list
     private List<JavaUserListLagos> javaUserLagosList = new ArrayList<JavaUserListLagos>();
@@ -93,13 +98,15 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         //Find the refresh layout by id
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
+        //Find the Error TextView by id
+        mErrorTextView = (TextView) findViewById(R.id.error_textView);
+
         //Setting the JavaListAdapter to the referenced listView
         adapter = new JavaListAdapter(this, javaUserLagosList);
         listView.setAdapter(adapter);
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         //Get details on the currently active default data network
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -166,9 +173,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
             // Adding request to request queue
             AppController.getInstance().addToRequestQueue(javaListReq);
+
         } else {
             //Dispaly a toast to notify the user that there isn't internet connection
             makeText(this, "No Internet Connection", Toast.LENGTH_LONG).show();
+            //Display the error TextView
+            mErrorTextView.setVisibility(View.VISIBLE);
 
         }
     }
@@ -178,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     public void onDestroy() {
         super.onDestroy();
         hidePDialog();
+        finish();
     }
 
     //Hide the dialog box
@@ -233,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     //Method to perform the search
-    void PerformSearch(String query) {
+   public void PerformSearch(String query) {
         //Filter the adapter
         adapter.filter(query);
     }
@@ -257,7 +268,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
-
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -276,6 +286,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 public void run() {
                     //Clear the adapter
                     javaUserLagosList.clear();
+                    mErrorTextView.setVisibility(View.INVISIBLE);
 
                     //Do the refresh
                     fetchJavaUserListLagos();
@@ -340,7 +351,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     public void onErrorResponse(VolleyError error) {
                         VolleyLog.d(TAG, "Error: " + error.getMessage());
                         hidePDialog();
-
                     }
                 });
 
