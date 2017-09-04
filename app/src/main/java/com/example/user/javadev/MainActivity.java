@@ -257,6 +257,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
 
+            //This is settings item
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);

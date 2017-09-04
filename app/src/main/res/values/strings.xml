@@ -22,8 +22,7 @@
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
     <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
+        based on your message history</string>
 
     <string name="pref_work_in_background">Work in background</string>
     <string name="pref_work_in_background_summary">May increase battery consumption</string>
