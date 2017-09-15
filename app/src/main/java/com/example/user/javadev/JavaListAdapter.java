@@ -90,27 +90,23 @@ public class JavaListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        final ViewHolder viewHolder;
+
         //Inflate the layout if the it is null with the systemService
         if (inflater == null)
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (convertView == null)
+        if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item, null);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
 
-        //Getting the id of the networkImage to be converted
-        final CircularNetworkImageView thumbNail = (CircularNetworkImageView) convertView.findViewById(R.id.thumbnail);
-
-        //Getting the id of the profileName to be converted
-        final TextView profileName = (TextView) convertView.findViewById(R.id.profile_name_text_view);
-
-        //Getting the id of the userId to be converted
-        final TextView userId = (TextView) convertView.findViewById(R.id.id_text_view);
-
-        //Getting the id of the userId to be converted
-        final TextView profileUrl = (TextView) convertView.findViewById(R.id.profile_url_text_view);
 
         // Setup share button with intent to send message about the user
         ImageView imageShare = (ImageView) convertView.findViewById(R.id.image_view);
@@ -120,8 +116,8 @@ public class JavaListAdapter extends BaseAdapter {
                 //Set up an explicit intent to share message to different messaging channel.
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer " + profileName.getText() +
-                        " with the link " + profileUrl.getText()).setType("text/plain");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer " + viewHolder.profileName.getText() +
+                        " with the link " + viewHolder.profileUrl.getText()).setType("text/plain");
                 activity.startActivity(sendIntent);
             }
         });
@@ -130,18 +126,41 @@ public class JavaListAdapter extends BaseAdapter {
         JavaUserListLagos javaUserListLagos = javaUserListLagosItems.get(position);
 
         // thumbnail image
-        thumbNail.setImageUrl(javaUserListLagos.getmAvatarUrl(), imageLoader);
+        viewHolder.thumbNail.setImageUrl(javaUserListLagos.getmAvatarUrl(), imageLoader);
 
         // Profile name
-        profileName.setText(javaUserListLagos.getmLogin());
+        viewHolder.profileName.setText(javaUserListLagos.getmLogin());
 
         //profile url
-        profileUrl.setText(javaUserListLagos.getmProfileUrl());
+        viewHolder.profileUrl.setText(javaUserListLagos.getmProfileUrl());
 
         // User id
-        userId.setText(String.format("User ID: %s", String.valueOf(javaUserListLagos.getmId())));
+        viewHolder.userId.setText(String.format("User ID: %s", String.valueOf(javaUserListLagos.getmId())));
 
         return convertView;
+    }
+
+    //ViewHolder inner class
+    private class ViewHolder {
+        CircularNetworkImageView thumbNail;
+        TextView profileName;
+        TextView userId;
+        TextView profileUrl;
+
+        public ViewHolder(View view) {
+
+            //Getting the id of the networkImage to be converted
+             thumbNail = (CircularNetworkImageView) view.findViewById(R.id.thumbnail);
+
+            //Getting the id of the profileName to be converted
+             profileName = (TextView) view.findViewById(R.id.profile_name_text_view);
+
+            //Getting the id of the userId to be converted
+             userId = (TextView) view.findViewById(R.id.id_text_view);
+
+            //Getting the id of the userId to be converted
+             profileUrl = (TextView) view.findViewById(R.id.profile_url_text_view);
+        }
     }
 
     // Filter Class
