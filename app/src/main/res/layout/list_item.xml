@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/layout_dimens"
     android:padding="@dimen/padding"
-    android:background="@drawable/list_item_selector">
+    android:background="@drawable/list_item_selector"
+    android:descendantFocusability="blocksDescendants">
 
-    <!-- Thumbnail Image -->
+    <!-- User Profile CircularNetworkImageView  -->
     <com.example.user.javadev.CircularNetworkImageView
         android:id="@+id/thumbnail"
         android:layout_width="@dimen/layout_dimens"
@@ -14,8 +15,9 @@
         android:layout_marginRight="@dimen/image_layout_margin"
         android:layout_marginEnd="@dimen/image_layout_margin"/>
 
-    <!-- Profile name TextView-->
+    <!--User Profile name TextView-->
     <TextView
+        android:id="@+id/profile_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Profile Name"
@@ -23,15 +25,14 @@
         android:fontFamily="sans-serif"
         android:textColor="@color/textColorProfileNameTextView"
         android:layout_marginTop="@dimen/text_view_layout"
-        android:id="@+id/profile_name_text_view"
-        android:layout_toRightOf="@id/thumbnail"
-        android:layout_toEndOf="@id/thumbnail"/>
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toEndOf="@+id/thumbnail"/>
 
     <!--User Id TextView-->
     <TextView
+        android:id="@+id/id_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/id_text_view"
         android:textSize="@dimen/id_text_view_size"
         android:fontFamily="sans-serif"
         tools:text="123456"
@@ -42,8 +43,9 @@
         android:layout_marginRight="@dimen/share_image_margin"
         android:layout_marginEnd="@dimen/share_image_margin"/>
 
-    <!-- profile url TextView-->
+    <!--User profile url TextView-->
     <TextView
+        android:id="@+id/profile_url_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/id_text_view"
@@ -54,18 +56,17 @@
         android:layout_toEndOf="@+id/thumbnail"
         android:textColor="@color/textColorProfileNameTextView"
         android:layout_marginTop="@dimen/profile_url_layout"
-        android:id="@+id/profile_url_text_view"
-        android:autoLink="web"/>
+        android:autoLink="web" />
 
     <!-- Share Button-->
     <ImageView
+        android:id="@+id/image_view"
         android:layout_width="@dimen/share_image_dimens"
         android:layout_height="@dimen/share_image_dimens"
         android:layout_margin="@dimen/share_image_margin"
         android:src="@drawable/ic_share_black_16dp"
-        android:id="@+id/image_view"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

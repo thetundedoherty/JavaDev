@@ -97,6 +97,9 @@ public class JavaListAdapter extends BaseAdapter {
         if (convertView == null)
             convertView = inflater.inflate(R.layout.list_item, null);
 
+        if (imageLoader == null)
+            imageLoader = AppController.getInstance().getImageLoader();
+
         //Getting the id of the networkImage to be converted
         final CircularNetworkImageView thumbNail = (CircularNetworkImageView) convertView.findViewById(R.id.thumbnail);
 

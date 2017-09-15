@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    tools:context="com.example.user.javadev.DetailActivity">
+
+    <!-- Relative Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_view_layout"
+        android:background="@color/activity_detail_background_color">
+
+        <!-- User Profile Name TextView -->
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/image_layout_margin"
+            android:text="@string/place_holder_text_view"
+            android:textSize="@dimen/placeholder_text_view"
+            android:textColor="@color/black"/>
+
+        <!--User Profile CircularNetworkImageView -->
+        <com.example.user.javadev.CircularNetworkImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/network_image_view_size"
+            android:layout_below="@+id/name_label" />
+
+        <!--Parent Linear layout holding the user profileUrl and Id TextView  -->
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/thumbnail"
+            android:layout_margin="@dimen/linear_layout_margin"
+            android:background="@drawable/rounded_rectangle"
+            android:orientation="vertical"
+            android:padding="@dimen/text_view_layout">
+
+            <!--User ProfileUrl TextView -->
+            <TextView
+                android:id="@+id/profile_url_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif"
+                android:text="@string/place_holder_text_view"
+                android:textColor="@color/white"
+                android:textSize="@dimen/error_text_view_size" />
+
+            <!-- Divider View-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginBottom="@dimen/view_layout_margin"
+                android:layout_marginLeft="@dimen/view_layout_margin_left_right"
+                android:layout_marginRight="@dimen/view_layout_margin_left_right"
+                android:layout_marginTop="@dimen/view_layout_margin"
+                android:background="@color/view_divider_color" />
+
+            <!-- User Id TextView-->
+            <TextView
+                android:id="@+id/id_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="serif-monospace"
+                android:text="@string/place_holder_text_view"
+                android:textColor="@color/white"
+                android:textSize="@dimen/profile_url_text_view_size" />
+
+        </LinearLayout>
+
+        <!-- FloatingActionButton-->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_account_circle_white_18dp"
+            app:backgroundTint="#E98098"
+            android:layout_below="@+id/linear_layout"
+            android:layout_marginTop="@dimen/fab_layout_margin_top" />
+
+    </RelativeLayout>
+
+</ScrollView>

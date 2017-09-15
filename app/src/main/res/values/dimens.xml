@@ -33,9 +33,27 @@
     <!-- layout width and height for the list item -->
     <dimen name="share_image_dimens">18dp</dimen>
 
+    <dimen name="network_image_view_size">185dp</dimen>
+
     <!-- The profile url textView layout -->
     <dimen name="profile_url_layout">32dp</dimen>
 
     <!-- The width of both textView in linear layout -->
     <dimen name="linear_layout_child_width">0dp</dimen>
+
+    <!-- The width of both textView in linear layout -->
+    <dimen name="placeholder_text_view">30sp</dimen>
+
+    <!-- Linear Layout margin for TextView in activity_detail xml -->
+    <dimen name="linear_layout_margin">20dp</dimen>
+
+    <!-- Layout margin for the divider view in activity_detail xml  -->
+    <dimen name="view_layout_margin">5dp</dimen>
+
+    <!-- Layout margin left and right for the divider view in activity_detail xml  -->
+    <dimen name="view_layout_margin_left_right">16dp</dimen>
+
+    <!-- FloatingActionButton layout margin top -->
+    <dimen name="fab_layout_margin_top">75dp</dimen>
+
 </resources>

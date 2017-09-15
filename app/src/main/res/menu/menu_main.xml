@@ -6,14 +6,16 @@
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="2"
         app:showAsAction="never" />
 
     <!--Search item in the ActionBar-->
     <item android:id="@+id/action_search"
         android:title="@string/search_title"
-        android:orderInCategory="5"
+        android:orderInCategory="1"
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="always|collapseActionView"
+
         app:actionViewClass="android.support.v7.widget.SearchView" />
+
 </menu>

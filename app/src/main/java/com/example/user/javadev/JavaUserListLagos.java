@@ -27,11 +27,13 @@ public class JavaUserListLagos {
      * @param id
      */
 
-    public JavaUserListLagos(String profileName, String avatarUrl, String profileUrl, int id) {
+    public JavaUserListLagos(String profileName, String avatarUrl, String profileUrl, int id ) {
         this.mLogin = profileName;
         this.mAvatarUrl = avatarUrl;
         this.mProfileUrl = profileUrl;
         this.mId = id;
+
+
     }
 
     //Get the login as profile name

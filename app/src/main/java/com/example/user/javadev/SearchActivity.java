@@ -24,6 +24,7 @@ public class SearchActivity extends Activity {
         }
     }
 
+    //Private method to do the search
     private void doMySearch(String query) {
         Log.d("Event",query);
     }

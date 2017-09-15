@@ -12,8 +12,13 @@
     <!-- Text for the search hint-->
     <string name="search_hint">Search</string>
 
+    <!-- Text for the settings menu-->
     <string name="title_activity_settings">Settings</string>
 
+    <!-- Placeholder TextView in the detail_activity xml-->
+    <string name="place_holder_text_view">Placeholder</string>
+
+    <!-- Text for the error message in ListView-->
     <string name="error_message">Failed to get results, Please try again later</string>
     <!-- Strings related to Settings -->
 

@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,6 +68,18 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     // List Adapter
     private JavaListAdapter adapter;
+
+    // User Id
+    private static String Id="id";
+
+    // User Name
+    private static String Title="title";
+
+    // User profile Url
+    private static String Profile="profile";
+
+    // User image Url
+    private static String bitmap="thumbnailUrl";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             Log.d(TAG, response.toString());
                             hidePDialog();
 
+                            //Parsing JSON
                             try {
                                 JSONArray jsonArray = response.getJSONArray("items");
 
@@ -181,6 +195,46 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             mErrorTextView.setVisibility(View.VISIBLE);
 
         }
+
+        // Setting OnItemClickListerner on ListView to start detail activity
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //Getting the reference to the id textView to be populated in the detailActivity
+                String iD = ((TextView) view.findViewById(R.id.id_text_view)).getText().toString();
+
+                //Getting the reference to the profile name textView to be populated in the detailActivity
+                String name = ((TextView) view.findViewById(R.id.profile_name_text_view)).getText().toString();
+
+                //Getting the reference to the Profile Url textView to be populated in the detailActivity
+                String profileUrl = ((TextView) view.findViewById(R.id.profile_url_text_view)).getText().toString();
+
+                //Getting the reference to the CircularNetworkImageView to be populated in the detailActivity
+                bitmap = ((JavaUserListLagos)javaUserLagosList.get(position)).getmAvatarUrl();
+
+                //Intent to start the DetailActivty
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+
+                //Setting the putExtra method on the intent and passing the profile name as a parameter
+                intent.putExtra(Title, name);
+
+                //Setting the putExtra method on the intent and passing the profile Url as a parameter
+                intent.putExtra(Profile, profileUrl);
+
+                //Setting the putExtra method on the intent and passing the profile Id as a parameter
+                intent.putExtra(Id, iD);
+
+                //Setting the putExtra method on the intent and passing the  bitmap CircularNetworkImageView as a parameter
+                intent.putExtra("images", bitmap);
+
+                //Starting the detail activity
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     //Method to destroy the dialog box when data finished fetching
@@ -373,7 +427,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 //Disable the Refreshing animation
                 swipeRefreshLayout.setRefreshing(false);
             }
-        }, 10000);
+        }, 5000);
     }
 }
 
